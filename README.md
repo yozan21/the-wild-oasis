@@ -7,4 +7,4 @@ Site link: [the-wild-oasis](https://the-wild-oasis-yozan.vercel.app)
 > [!IMPORTANT]
 > Please use the following credentials to login👇<br>
 > email: rabeto3369@andinews.com<br>
-> password: test1234566
+> password: test123456
