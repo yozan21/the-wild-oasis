@@ -1,8 +1,22 @@
 import { createClient } from "@supabase/supabase-js";
 
-export const supabaseUrl = "https://tdemmzvorbhpqrsemzcz.supabase.co";
+export const supabaseUrl = "https://zxzprlzpyjfazcgsenpi.supabase.co";
 const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRkZW1tenZvcmJocHFyc2VtemN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxMDkxNjQsImV4cCI6MjA2NDY4NTE2NH0.ICnVZE1bOUVmsNA1Kj3R2vLUTMCHliDgpbxC1zhP_Ms";
-const supabase = createClient(supabaseUrl, supabaseKey);
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4enBybHpweWpmYXpjZ3NlbnBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwODg1OTQsImV4cCI6MjA3ODY2NDU5NH0.-dTknNpC50LTiRFaMNgSZMBz5M4eGaXcCV0eTJ-9cPw";
+const supabase = createClient(supabaseUrl, supabaseKey, {
+  auth: {
+    persistSession: false, // 🔥 FIXES SecurityError
+    autoRefreshToken: false,
+  },
+});
+
+console.log(supabase);
+async function test() {
+  const { data, error } = await supabase.from("bookings").select("*");
+  if (error) console.error("Error💥💥:", error);
+  else console.log("Data:", data);
+}
+
+test();
 
 export default supabase;
